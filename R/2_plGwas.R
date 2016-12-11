@@ -641,16 +641,17 @@ isBinary = function(v, na_value = NULL) {
 
 #' Check whether phenotype of a GWAS is binary
 #' 
-#' @param pl_gwas PlGwasC object.
+#' @param pl_gwas PlGwasC object. 
+#' @param na_value A vector of codes that represent missing values. 
 #' @return logical
 #' 
 #' @author Kaiyin Zhong, Fan Liu
 #' @export
-binPhe = function(pl_gwas) {
+binPhe = function(pl_gwas, na_value = c(-9, 0)) {
 	stopifnot(isS4Class(pl_gwas, "PlGwasC"))
 	validObject(pl_gwas)
 	phe = readPhe(pl_gwas, pl_gwas@opts$pheno_name)
-	isBinary(phe[, 1])
+	isBinary(phe[, 1], na_value)
 }
 
 #' Plink log fie

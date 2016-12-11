@@ -108,24 +108,6 @@ numVectorSQLRepr = function(vec, print_out = FALSE) {
 
 
 
-#' Retrive SNP positions from hg19 database
-#' @param snps A vector of SNP names
-#' @param rm_underscore Remove irregular chromosome names
-#' @return data.frame
-#' 
-#' @author kaiyin
-#' @export
-snpPosSNP138 = function(snps, rm_underscore = TRUE) {
-	cmdStart = "mysql --user=genome --host=genome-mysql.cse.ucsc.edu -NA     -e \"select chrom, chromStart, chromEnd, name from hg19.snp138 where name in "
-	tmpfile = tempfile()
-	cmdEnd = sprintf("\" hg19 > %s", tmpfile)
-	snplist = strVectorRepr(snps, start_with_c = FALSE)
-	cmd = sprintf("%s %s %s", cmdStart, snplist, cmdEnd)
-	system(cmd)
-	res = read.table(tmpfile, header = FALSE)
-	colnames(res) = c("chrom", "chromStart", "chromEnd", "SNP")
-	hasUnderscore = stringr::str_detect(res$chrom, "_")
-	res[!hasUnderscore, ]
-}
+
 
 

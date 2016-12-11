@@ -1,0 +1,2 @@
+Added snpPos function for retrieving SNP positions from UCSU database.
+Added pooling functionality to getHaplos for better accuracy.

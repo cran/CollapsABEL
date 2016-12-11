@@ -85,7 +85,6 @@ plinkTrio <- function(bedstem, must_exist = FALSE) {
 #'			fam_ff = getQuery(sqliteFilePl(pl_info), "select * from fam")
 #'			frq_ff = getQuery(sqliteFilePl(pl_info), "select * from frq")
 #' }
-#' @importFrom methods validObject
 #' @author Kaiyin Zhong, Fan Liu
 #' @export 
 setGeneric("plInfo",
@@ -112,6 +111,7 @@ setMethod("plInfo",
 			main_dir = dirname(plink_trio[1])
 			
 			# frq file
+			# TODO: autogen frq files using plinkr
 			plink_frq = paste(bedstem, ".frq", sep="")
 			
 			# return a PlInfoC obj
@@ -120,7 +120,7 @@ setMethod("plInfo",
 			pl_info@plink_trio = plink_trio
 			pl_info@plink_trio_base = plink_trio_base
 			pl_info@plink_frq = plink_frq
-			validObject(pl_info)
+			methods::validObject(pl_info)
 			if(db_setup) {
 				setup(pl_info)
 			}

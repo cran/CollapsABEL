@@ -95,7 +95,7 @@ setupRbed = function(rbed_info) {
 		rbed_info@nindiv = nIndivPl(pl_info)
 		rbed_info@nindiv_appr = nIndivApprPl(pl_info)
 		rbed_info@nsnp = nSnpPl(pl_info)
-		validObject(rbed_info)
+		methods::validObject(rbed_info)
 		rbed_info
 	}
 }

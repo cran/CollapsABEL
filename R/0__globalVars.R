@@ -25,6 +25,7 @@
 #' .plink_stderr Plink stderr
 #' 
 #' @name collenv
+#' @export 
 collenv <<- new.env()
 
 collenv$.collapsabel_dir = file.path(Sys.getenv("HOME"), ".collapsabel")
@@ -50,6 +51,7 @@ globalVariables(
 				"collenv", 
 				"alphaNumeric", 
 				"x", "y", "xend", "yend", 
-				"XPOS", "MLOGP", "BP", "COLOR", "ACHR"
+				"XPOS", "MLOGP", "BP", "COLOR", "ACHR",
+				"p", "geno_pool", "group", "id"
 		)
 )

@@ -4,10 +4,12 @@
 \alias{binPhe}
 \title{Check whether phenotype of a GWAS is binary}
 \usage{
-binPhe(pl_gwas)
+binPhe(pl_gwas, na_value = c(-9, 0))
 }
 \arguments{
 \item{pl_gwas}{PlGwasC object.}
+
+\item{na_value}{A vector of codes that represent missing values.}
 }
 \value{
 logical
